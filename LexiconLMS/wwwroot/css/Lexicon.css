@@ -1,0 +1,44 @@
+﻿.container
+{
+    margin-left:unset;
+}
+
+.navbar {
+    background-color: #202020;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1.0)' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.CourseData {
+    display: inline;
+    padding-right: 45px;
+}
+.CourseMore {
+    border: 1px solid black;
+}
+
+.CourseButtons {
+    display: inline;
+}
+
+.CourseName {
+    font-weight: bold;
+    display:block;
+    font-size: 1.5rem;
+    text-transform:capitalize;
+}
+a {
+    color: #7839a1;
+}
+    a:hover {
+        color: #9049bf;
+    }
+
+    .LinkButtons a {
+        color:white;        
+    }
+    .tenpxmargin {
+        margin: 10px;
+    }
+

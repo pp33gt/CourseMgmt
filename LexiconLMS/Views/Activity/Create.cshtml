@@ -1,0 +1,55 @@
+﻿@model LexiconLMS.ViewModels.ActivityAddViewModel
+@{
+    ViewData["Title"] = "Create Activity";
+}
+
+<div>
+    <partial name="_ActivityBreadCrumbPartial" />
+</div>
+<hr />
+<h5>Create Activity:</h5>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ActivityTypeId" class="control-label"></label>
+                <select asp-for="ActivityTypeId" class="form-control" asp-items="ViewBag.ActivityTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <input type="hidden" asp-for="ModuleId" class="form-control" />
+            <input type="hidden" asp-for="ModuleName" class="form-control" />
+            <input type="hidden" asp-for="ParentStartDate" class="form-control" />
+            <input type="hidden" asp-for="ParentEndDate" class="form-control" />
+
+            <div>
+                <input type="submit" value="Save" class="btn btn-green" />
+                <a asp-action="Details" asp-controller="Module" class="btn btn-grey" asp-route-id="@Model.ModuleId"></i>Cancel</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

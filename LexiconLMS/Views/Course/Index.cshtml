@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CourseListViewModel>
+
+@{
+    ViewData["Title"] = "Add Course";
+}
+
+<h1>Courses</h1>
+<hr />
+<a asp-action="Create" class="btn btn-green"> Create Course </a>
+<a asp-action="Index" asp-controller="Teacher" class="btn btn-grey">Back To Home </a>
+<table class="table tablestyle" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.TeacherName)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th*@
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfStudents)
+            </th>
+            <th></th>
+
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+                 <td>
+                   <h5><a asp-action="Details" asp-route-id="@item.Id">@item.Name</a></h5> 
+                </td>
+                <td>
+                    <i class="fa fa-clock"></i>@Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                @*<span class="CourseData">
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </span>*@
+                @*<span class="CourseData">
+                    Responsible teacher: @Html.DisplayFor(modelItem => item.TeacherName)
+                </span>
+                <span class="CourseData CourseMore">
+                    @Html.DisplayFor(model => item.Description)
+                </span>*@
+                <td>
+                    <i class="fa fa-users"></i> @Html.DisplayFor(model => item.NumberOfStudents) students in class
+                </td>
+
+                <td>
+                   <div class="btn btn-purple btn-sm" ><a asp-action="Edit" asp-route-id="@item.Id" class="text-white"><i class="fa fa-edit"></i>Edit</a></div> 
+
+                
+                    @*<a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle fa-lg"></i> Info</a>*@
+
+                    <div class="btn btn-grey btn-sm"> <a asp-action="Delete" asp-route-id="@item.Id" class="text-white"><i class="fa fa-trash"></i> Remove</a></div>
+                </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+

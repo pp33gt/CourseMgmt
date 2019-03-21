@@ -1,0 +1,57 @@
+﻿@model LexiconLMS.ViewModels.ModuleAddViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div>
+    <partial name="_ModuleBreadCrumbPartial" />
+</div>
+<hr />
+<h5>Edit Module:</h5>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+
+            <input type="hidden" asp-for="CourseId" class="form-control" />
+            <input type="hidden" asp-for="CourseName" class="form-control" />
+            <input type="hidden" asp-for="ParentStartDate" class="form-control" />
+            <input type="hidden" asp-for="ParentEndDate" class="form-control" />
+
+            <div class="form-group">
+
+                <input type="submit" value="Save" class="btn btn-green" />
+                <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.CourseId" class="btn btn-purple">Back to Course</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
