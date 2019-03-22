@@ -144,6 +144,8 @@ namespace LexiconLMS.Controllers
         {
             var students = await _userManager.GetUsersInRoleAsync("Student");
 
+            students = students.Where(a => a.CourseId == courseId.Value).ToList();
+
             model.Students = new List<User>();
             foreach (var student in students)
             {
